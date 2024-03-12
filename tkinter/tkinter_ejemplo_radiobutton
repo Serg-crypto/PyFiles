@@ -1,0 +1,35 @@
+import tkinter as tk
+
+
+window = tk.Tk()
+window.title("This a test")
+window.minsize(width=400, height=400)
+window.config(padx=10, pady=10)
+
+
+
+def click():
+    """ Función para obtener el valor del radiobutton y mostrarlo en la interfaz """
+    monitor.config(text ="{}".format(opcion.get()))
+
+
+def reset():
+    """ Función para reiniciar el proceso al desaparecer el valor seleccionado en el radiobutton """
+    opcion.set(None)
+    monitor.config(text="")
+
+
+opcion = tk.IntVar()
+
+tk.Radiobutton(window, text="Opción1", variable = opcion, value = 1, command=click).pack()
+tk.Radiobutton(window, text="Opción2", variable = opcion, value = 2, command=click).pack()
+tk.Radiobutton(window, text="Opción3", variable = opcion, value = 3, command=click).pack()
+
+tk.Button(window, text="Reset", command=reset).pack()
+
+monitor = tk.Label(window)
+monitor.pack()
+
+
+
+window.mainloop()
