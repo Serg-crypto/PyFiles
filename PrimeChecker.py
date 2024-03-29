@@ -1,6 +1,6 @@
 def prime_checker(number):
     if number > 1:
-        for i in range(2, number):
+        for i in range(2, int(number**0.5) + 1):
             if number % i == 0:
                 print(f"The number {number} is not a prime number")
                 break
